@@ -1,0 +1,12 @@
+__pycache__/
+
+*.env
+
+.ipynb_checkpoints/
+
+models/
+*.joblib
+
+dvc.lock
+dvc.yaml
+*.env
