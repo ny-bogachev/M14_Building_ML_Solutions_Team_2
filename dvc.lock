@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  download_data:
+    cmd: python src/model/download_data.py
+    deps:
+    - path: src/model/download_data.py
+      hash: md5
+      md5: 4b42f3d8a7848250a91b7d1226ca233f
+      size: 1234
+    outs:
+    - path: data/trips_2024_07_02.csv
+      hash: md5
+      md5: 1f9345a448a942a062b2d6a39edd6cbe
+      size: 10612616

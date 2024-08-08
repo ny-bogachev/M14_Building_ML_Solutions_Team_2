@@ -1,0 +1,6 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = s3://wandering-glitter-6295
+    endpointurl = https://fly.storage.tigris.dev
+    region = auto

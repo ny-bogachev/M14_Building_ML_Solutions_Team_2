@@ -36,19 +36,15 @@ def preprocess_request(data: List[PredictRequest]):
         "passenger_count": item.passenger_count
     } for item in data])
 
-    # Convert datetime
     df['tpep_pickup_datetime'] = pd.to_datetime(df['tpep_pickup_datetime'])
     
-    # Calculate trip distance and duration
     df['trip_distance'] = ((df['dropoff_longitude'] - df['pickup_longitude'])**2 + (df['dropoff_latitude'] - df['pickup_latitude'])**2)**0.5
     df['duration_sec'] = (datetime.now() - df['tpep_pickup_datetime']).dt.total_seconds()  # Placeholder for actual calculation
 
-    # Dummy variables and date checks
     df['congestion_surcharge_dummy'] = 0
     df['airport_fee_dummy'] = 0
     df[['is_weekend', 'is_holiday']] = df['tpep_pickup_datetime'].apply(check_holiday_weekend)
     
-    # Keep relevant columns
     feature_columns = ['trip_distance', 'is_weekend', 'is_holiday', 'congestion_surcharge_dummy', 'airport_fee_dummy']
     input_df = df[feature_columns]
     

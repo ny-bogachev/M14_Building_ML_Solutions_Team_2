@@ -1,0 +1,21 @@
+stages:
+  download_data:
+    cmd: python src/model/download_data.py
+    deps:
+    - src/model/download_data.py
+    outs:
+    - data/trips_2024_07_02.csv
+  preprocess:
+    cmd: python src/model/preprocess.py
+    deps:
+    - src/model/preprocess.py
+    - data/trips_2024_07_02.csv
+    outs:
+    - data/preprocessed_data.csv
+  train_model:
+    cmd: python src/model/train.py
+    deps:
+    - src/model/train.py
+    - data/preprocessed_data.csv
+    outs:
+    - models/random_forest_regressor_model.joblib

@@ -1,0 +1,3 @@
+data_dir: 'data'
+model_dir: 'models'
+database_url : 'postgresql://postgres.aeootalfoqhilupvmfac:xWbhAokb54DJdTb@aws-0-eu-central-1.pooler.supabase.com:6543/postgres'
